@@ -2,3 +2,4 @@
 *.dvi
 main.sysntex(busy)
 *.toc
+*.pdf

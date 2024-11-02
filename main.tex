@@ -1,5 +1,5 @@
 \documentclass[11pt,a4j]{jreport}
-
+\usepackage{enumitem} % リストをカスタマイズするためのパッケージ
 \usepackage{comment}
 \usepackage{float}
 \usepackage{color}
@@ -206,12 +206,264 @@ X線や電子線の回折スペクトルに端的に現れる。ここで、個�
   \caption{逆格子ベクトルの比と１周期内の配列}
   \label{LS}
 \end{figure}
+
+\chapter{NMRの原理}
+\section{核磁気共鳴現象}
+
+\section{超微細相互作用}
+超微細相互作用は、核磁気モーメント$\bm \mu_n$と電子の相互作用であり、NMRやNQRなどの共鳴型磁気測定において極めて重要な役割を果たす。この相互作用は、共鳴線のシフトや核スピンの緩和過程に影響を与えるため、物質のミクロな電子状態を理解するための手がかりとなる。\par
+原点に核磁気モーメント$\bm \mu_n$を置き、電子の座標を$\bm r$とする。$\bm \mu_n$による点$\bm r$におけるベクトルポテンシャル$\bm A(\bm r)$は
+\begin{equation}
+  \bm A(\bm r)=\nabla\times \frac{\bm \mu_n}{r}
+\end{equation}
+である。電子の運動量$\bm p$およびスピン$\bm s$との相互作用のハミルトン二アンは
+\begin{equation}
+  \mathcal{H} = \frac{1}{2m}\left(\bm p + \frac{e}{c}\bm A(\bm r)\right)^2 + 2\mu_B \bm s\cdot\nabla\times\bm A
+  \label{H}
+\end{equation}
+であり、$\bm A(\bm r)=0$からの差は
+\begin{align} 
+    \mathcal{H}_l&=\frac{e}{2mc}(\bm p\cdot \bm A+\bm A\cdot\bm p+\frac{e}{c}\bm A^2)+2\mu_B\bm s\cdot\left(\nabla\times\left(\nabla\times\frac{\mu_n}{r}\right)\right)\\
+    &=\mathcal{H}_l+\mathcal{H}_s+\frac{e^2}{2mc^2}\bm A^2
+\end{align}
+となる。ここで、
+\begin{equation}
+  \mathcal{H}_l=\frac{e}{2mc}(\bm p\cdot\bm A + \bm A \cdot \bm p)
+  \label{H_l}
+\end{equation}
+\begin{equation}
+  \mathcal{H}_s=2\mu_B\bm s\cdot\left(\nabla\times\left(\nabla\times\frac{\mu_n}{r}\right)\right)
+  \label{H_s}
+\end{equation}
+まず、式(\ref{H_l})の$\mathcal{H}_l$について考える。
+\begin{equation}
+  \bm A(\bm r)=\nabla\times\frac{\bm \mu_n}{r}=\frac{\bm \mu_n\times\bm r}{r^3}
+\end{equation}
+であるから、
+\begin{equation}
+  \mathcal{H}_l=\frac{e}{2mc}\left(\bm p\cdot\frac{\bm{\mu}_n\times\bm{r}}{r^3}+\frac{\bm{\mu}_n\times\bm{r}}{r^3}\cdot\bm{p}\right)
+\end{equation}
+となり、$\bm{r}\times\bm{p}=\hbar\bm{l}$、$\mu_B=e\hbar/2mc$をつかって
+  \begin{align}
+    \mathcal{H}_l&=2\mu_B\frac{\bm{I}\cdot\bm{l}}{r^3}\\
+    &=\gamma_e\gamma_n\hbar^2\frac{\bm{I}\cdot\bm{l}}{r^3}
+    \label{H_orb}
+  \end{align}
+となる。これは核スピンと電子の軌道角運動量との相互作用で、$l\leq1$の$p,d,f,\cdots$電子が関与する。\par
+次に、式(\ref{H_s})の$\mathcal{H_s}$は、核スピンと電子スピンの相互作用であるが、
+\begin{equation}
+  \nabla \times \left( \nabla \times \frac{\bm{\mu}_n}{r} \right) = \nabla\left( \nabla \cdot \frac{\bm{\mu}_n}{r} \right) - \Delta \frac{\bm{\mu}_n}{r}
+\end{equation}
+を用いると、
+\begin{equation}
+  \mathcal{H}_s=2\mu_B\left[(\bm{s}\cdot\nabla)(\mu_n\cdot\nabla)\frac{1}{r}-\frac{1}{3}\bm{s}\cdot\Delta\frac{\mu_n}{r}\right]-\frac{4}{3}\mu_B\bm{s}\cdot\Delta\frac{\bm{\mu}_n}{r}
+  \label{H_s_2}
+\end{equation}
+となる。第１項は
+\begin{align}
+  \mathcal{H}_s^1 &= 2 \mu_B \sum_{i,j} s_{x_i} \frac{\partial^2}{\partial x_i \partial x_j} \mu_{n x_j} \left( \frac{1}{r} \right) - \frac{1}{3} s_{x_i} \mu_{n x_i} \frac{\partial^2}{\partial x_j^2} \left( \frac{1}{r} \right)\\
+  &=2\mu_B \sum_{i,j} s_{x_i} \mu_{n x_j} \Lambda_{ij}
+\end{align}
+\begin{align}
+  \Lambda_{ij} &= \frac{1}{3} \left(3 \frac{\partial^2}{\partial x_i \partial x_j} - \delta_{ij} \sum_k \frac{\partial^2}{\partial x_k^2} \right) \left( \frac{1}{r} \right)\\
+  &= \frac{1}{3} \frac{3x_i x_j - r^2 \delta_{ij}}{r^5}
+\end{align}
+と書かれる。ここで$x_1,x_2,x_3$は$x,y,z$を表す。$r\neq0$では$\mathcal{H}_s^l$は磁気双極子相互作用
+\begin{equation}
+  -\frac{2\mu_B\bm{s}\cdot\bm{\mu}_n}{r^3}+\frac{3(\mu_B\bm{s}\cdot\bm{r})(\bm{\mu}_n\cdot\bm{r})}{r^5}
+\end{equation}
+であり、式\ref{H_s_2}第２項$\mathcal{H}_s^2$は0となる。一方、$r\to0$では
+\begin{equation}
+  \Delta \left(\frac{1}{r}\right)=-4\pi\delta(\bm{r})
+\end{equation}
+であるから
+\begin{align}
+  \mathcal{H}_s^2&=\frac{16}{3}\pi \mu_B \bm{s}\cdot\bm{\mu}_n|\psi_s(0)|^2\\
+  &=\frac{8}{3}\pi \gamma_e\gamma_n\hbar^2|\psi_s(0)|^2\bm{s}\cdot\bm{I}
+\end{align}
+となり、$\mathcal{H}_s^1$が消える。以上の議論から、核スピンと電子スピンの相互作用$\mathcal{H}_s$は磁気双極子相互作用
+\begin{equation}
+  \mathcal{H}_{\text{dip}} = -\frac{\gamma_e \gamma_n \hbar^2}{r^3} \left\{ \bm{s} \cdot \bm{I} - \frac{3 (\bm{s} \cdot \bm{r}) (\bm{I} \cdot \bm{r})}{r^2} \right\}
+  \label{H_dip}
+\end{equation}
+とフェルミの接触相互作用
+\begin{equation}
+  \mathcal{H}_F=\frac{8}{3}\pi\gamma_e\gamma_n\hbar^2\bm{s}\cdot \bm{I}\delta(r)
+  \label{H_F}
+\end{equation}
+がある。$\mathcal{H}_{dip}$には$p,d,f,\cdots$電子が、$\mathcal{H}_F$には$s$電子が関与する。\par
+$H_l,H_s$は基本的な相互作用であるが、間接的な相互作用として内殻偏極の相互作用がある。これは、電子スピンが分極すると交換相互作用により、内側の閉殻の電子スピンの空間分布が変化し、それにより核位置における内殻$s$スピンの電子密度が変化する。外側のスピンと平行な内殻$s$電子スピンの軌道は広がり、反平行スピンの核位置の密度が増え、外側スピンと核スピンの間に大きな相互作用が生じる。これは、
+\begin{equation}
+\mathcal{H}_{core}=\frac{8\pi}{3}\gamma_e\gamma_n\hbar^2\bm{I}\cdot\bm{s}\sum_{i}{(|\psi_i(0)|_\uparrow^2-|\psi_i(0)|_\downarrow^2 )}
+\label{H_core}
+\end{equation}
+と書かれる。$s$は外側のスピンで$|\psi_i(0)|_{\uparrow,\downarrow }^2$は$i$番目の内殻$s$電子の上向き、下向きスピンの核位置での密度である。\par
+また、同じ原子内の内殻偏極の効果と同様に、隣接イオンにおいても電子スピンの空間分布が変化し、核イオンと電子スピンとの間に新たな相互作用が生じることがある。この空間分布の変化は、不対電子の波動関数と隣接イオンの電子軌道が部分的に重なり合うことで生じる。この隣接イオンの電子の空間分布により隣接イオンの核スピンは相互作用が生じる。この相互作用はtransfer相互作用とよばれ
+\begin{equation}
+\mathcal{H}_{trans} = A\bm{I}\cdot\bm{s}
+\end{equation}
+で表せる。ここで、$A$はtransfer超微細結合定数、$\bm I$は隣接核の核スピン演算子、$\bm s$不対電子のスピン演算子である。さらに、不対電子スピンと隣接核サイトの間には、磁気双極子相互作用も存在する。\par
+以上をまとめると、式(\ref{H_orb})、式(\ref{H_dip})、式(\ref{H_F})、式(\ref{H_core})の期待値を$\mu_n$で割って（$-$）をつけると、各相互作用を通じて核スピンに働く超微細磁場が得られる。
+\begin{equation}
+  \bm{H}_{orb} = -\gamma_e\hbar \langle \bm{l} \rangle \langle \psi^*|\frac{1}{r^3}|\psi \rangle 
+\end{equation}
+\begin{equation}
+  \bm{H}_{dip} = \gamma_e\hbar \left\langle \psi^* \left|\frac{\left\langle\bm{s}\right\rangle}{r^3}-3\frac{(\left\langle \bm s\right\rangle \cdot \bm r)\bm{r} }{r^5} \right| \psi \right\rangle
+\end{equation}
+\begin{equation}
+  \bm{H}_F = -\frac{8}{3}\pi \gamma_e \hbar \langle \bm{s}\rangle |\psi(0)|^2
+  \label{H_F_2}
+\end{equation}
+\begin{equation}
+  \bm{H}_{core} = -\frac{8}{3}\pi \gamma_e \hbar \langle \bm{s}\rangle \sum_{i}{(|\psi_i(0)|_\uparrow^2-|\psi_i(0)|_\downarrow^2 )}
+\end{equation}
+\par
+電子スピンあるいは軌道角運動量の方向は、一般にはNMR周波数に比べて非常に早く変化しているので、核スピンの受ける磁場はそれぞれの時間平均となる。
+\section{共鳴線のシフト}
+一般に物質の中では、外部磁場$H_0$での周波数$\omega$は
+\begin{align}
+  \omega &= \omega_0 + \Delta K \\
+  &= \gamma(H_0+\Delta H)
+\end{align}
+のように、$\omega_0=\gamma H_0$よりシフトする。このシフトは、電子の軌道磁化が作る磁場と電子スピンによる磁気モーメントが作る磁場により、前節で述べた超微細相互作用を通して、余分の磁場$\Delta H$を作るからである。まず、非磁性、非金属物質でメインとなる化学シフトについて述べる。化学シフトとは分子内の核周囲の電子の遮蔽に起因し、主に共有結合や化学結合の性質によるものである。この場合$\left\langle s_z \right\rangle = 0$である。式(\ref{H})に外場$H_0$が加わると
+\begin{align}
+  \mathcal{H} = \frac{1}{2m}(\bm p + \frac{e}{c} \bm A_0 +\frac{e}{c} \bm A_n)^2\\
+  \bm A_0 =\frac{1}{2}(\bm H_0 \times \bm r), \bm A_n = \frac{\bm{\mu}_n \times \bm r}{r^3}
+  \label{che}
+\end{align}
+となる。このとき、式(\ref{che})の第２項と第３項の積からは反磁性シフトが、そして第１項と第２項、および第１項と第３項の積の２次摂動エネルギーから常磁性シフトが得られる。\par
+ここで、反磁性シフトとは、磁場をかけると，ローレンツ力によって，その変化を打ち消すように，原子核の周りを運動する電子の軌道角運動量が変化することによって生じる小さい負のシフトである。これは反磁性効果と呼ばれ、非磁性の有機化合物や非金属化合物で観測される。\par
+一方、常磁性シフトとは、自由な回転運動が束縛されて$\langle l \rangle =0$となっている電子の軌道角運動量が、外部磁場$H_0$にによって一部回復し、余分な磁場$\Delta H$を生じることで発生する正のシフトである。
+\subsection{ナイトシフトと局所磁化率}
+金属や磁性体の常磁性状態では，伝導電子や局在電子の磁化が外部磁場により誘起されるので，核位置に大きな磁場をつくる．ナイト(Knight)は金属銅中の銅(Cu)核の共鳴位置が$Cu_2O$に比べて0.23％という大きい
+シフトを持つことを発見した．特に発見者に因んでナイトシフト(Knight shift) という。その後，種々の金属において同様の結果が得られた。磁気的な遷移金属，遷移金属化合物，希土類化合物では，大きな負のナイトシフトを示す。これは以下しめすように，$s$電子系，$d$電子系，および$f$電子系のナイトシフトは、電子スピン分極によるからである。
+\subsubsection{$s$電子系}
+ブロッホ関数を
+\begin{equation}
+  \phi_{\bm{k}}(\bm{r}) = u_{\bm{k}}(\bm{r}) e^{i \bm{k} \cdot \bm{r}}
+\end{equation}
+とすると、フェルミの接触相互作用の式(\ref{H_F})によるエネルギーは
+\begin{equation}
+  \Delta E = \sum_{\bm{k}, \sigma} \left\langle \phi_k^* \middle| \frac{8}{3 \pi} \gamma_e \gamma_n \hbar^2 \bm{s}_k \cdot \bm{I} \delta(\bm{r}) \middle| \phi_k \right\rangle
+\end{equation}
+である。ここで、\(\phi_{\bm{k}}(\bm{r})\) は単位体積で規格化されている。単位体積あたりのパウリの常磁性スピン磁化率を \(\chi_P\) とすると
+\begin{equation}
+  -\gamma_e\hbar \sum_{\bm{k},\sigma} \left\langle \phi_k^* \middle| s_{\bm{k}z} \middle| \phi_k \right\rangle = \chi_P H_0
+\end{equation}
+であるから
+\begin{equation}
+  \Delta E = -\frac{8}{3 \pi} \gamma_n \hbar I \chi_P H_0 | u_{k_F}(0) |^2
+\end{equation}
+となって、ナイトシフト \(K_s\) は
+\begin{equation}
+  K_s = \frac{\Delta H}{H_0} = - \frac{\Delta E}{\gamma_n \hbar I} \frac{1}{H_0} = \frac{8 \pi}{3} | u_{k_F}(0) |^2 \chi_P
+  \label{K_s}
+\end{equation}
+電子間の相互作用を無視すると、\(\chi_P = 2 \mu_B^2 N(E_F)\) である。ここで \(N(E_F)\) はフェルミ面での単位体積あたりの1スピン状態密度である。孤立原子内の波動関数を \(\psi_a(\bm{r})\)、1原子あたりのスピン磁化率を \(\chi_P^a\) とすると、式(\ref{K_s})より
+\begin{equation}
+  K_s = \frac{8 \pi}{3} |\psi_a(0)|^2 \xi \chi_P^a
+\end{equation}
+と書ける。 $\xi$ は孤立原子内と金属内での波動関数の広がりの違いを表すパラメータで、1より小さい。$K_s$ は正である。$s$電子1$\mu_B$ あたりの超微細磁場$H_{s}^{\text{hf}}$ を定義すると、式(\ref{H_F_2})より
+\begin{equation}
+  H_{s}^{\text{hf}} = \frac{8}{3 \pi} \mu_B |\psi_a(0)|^2 = \frac{4}{3 \pi} \gamma_e \hbar |\psi_a(0)|^2
+\end{equation}
+であるから
+\begin{equation}
+  K_s = \frac{H_{s}^{\text{hf}}}{N \mu_B} \chi_P
+  \label{K_s_2}
+\end{equation}
+とも書ける。 \(N\) は単位体積中の電子の数である。ここで \(\xi = 1\) とした。
+
+\subsubsection{$d$電子系}
+遷移金属では$d$バンドが高い状態密度をもち、大きいスピン磁化率$\chi_d$を持つ。$d$電子は、核と直接のフェルミ接触相互作用を持たないが、式(\ref{H_core})の内殻偏極の相互作用をもつ。これに起因するナイトシフトは
+\begin{equation}
+  K_{\text{core}} = \frac{8\pi}{3} \chi_d \sum_i \left( |\psi_i(0)|^2_{\uparrow} - |\psi_i(0)|^2_{\downarrow} \right) = \frac{H_d^{\text{hf}}}{N\mu_B} \chi_d
+  \label{K_core}
+\end{equation}
+と書けて負である。ここで$H_d^{\text{hf}}$はd電子1$\mu_B$あたりの内殻偏極による超微細磁場である。
+軌道角運動量によるシフトは
+\begin{equation}
+  K_{\text{orb}} = \frac{2 \chi_{\text{orb}}}{\langle r^3 \rangle} = \frac{H_{\text{orb}}^{\text{hf}}}{N \mu_B} \chi_{\text{orb}}
+  \label{K_orb}
+\end{equation}
+
+と書けて正である。$H_{\text{orb}}^{\text{hf}}$は1$\mu_B$あたりの軌道磁気モーメントによる超微細磁場である。軌道角運動量は電子がバンドを作り遍歴することにより消失するが、磁場との相互作用の2次摂動により一部復活する。$\chi_{\text{orb}}$はこの復活した軌道角運動量に伴う磁化に対応するもので温度によらない。
+$K_{\text{orb}}$ の表式は下の通りである。ここで、$m, n$は各バンドを示す。
+\begin{equation}
+  K_{\text{orb}} = \frac{2 \mu_B^2}{\hbar^2} \sum_{m,n} \int dk \frac{f(E_{mk}) - f(E_{nk})}{E_{mk} - E_{nk}} \left| \langle nk | L_z | mk \rangle \right|^2
+\end{equation}
+式(\ref{K_s_2}), 式(\ref{K_core}), 式(\ref{K_orb})の磁化率とシフトとの関係は電子系がバンドを作って結晶内を遍歴しているか、あるいは局在しているかに拘わらず成立する表式である。実際ナイトシフトは最初は金属におけるシフトを意味したが、現在は非金属磁性体を含めてシフトをナイトシフトと呼んでいる。この場合、ナイトシフトは温度変化する。金属の場合でも伝導帯の幅が狭く、フェルミ温度が低い場合や電子間の相関が強くなるとスピン磁化率は温度変化し、したがって$K_d$は温度に依存する。$\chi_{\text{orb}}$は本質的には化合物磁性体におけるヴァン・ヴレック(Van Vleck)磁化率と同じで、以後$K_{\text{orb}}, \chi_{\text{orb}}$を$K_{\text{vv}}, \chi_{\text{vv}}$と記す。
+一般に遷移金属における磁化率は
+\begin{equation}
+  \chi = \chi_{\text{core}} + \chi_s + \chi_d + \chi_{\text{vv}}
+\end{equation}
+と書かれる。$\chi_{\text{core}}$は、閉殻の反磁性磁化率、$\chi_s, \chi_d$はそれぞれ$s$バンドと$d$バンドのスピン磁化率、$\chi_{\text{vv}}$はヴァン・ヴレックの軌道磁化率である。ここで、遷移金属では、$s$-$d$混成効果のために、$s$バンドの状態密度は$E_F$のところでは、$d$バンドの影響で小さくなるので、$\chi_s$の評価は簡単ではないので、以下の議論では、$s$バンドの項を無視して、ナイトシフトは
+\begin{equation}
+  K = K_d + K_{\text{vv}}
+\end{equation}
+
+\begin{figure}[htbp]
+  \centering
+  \vspace{10mm}
+  \includegraphics[width=100mm]{./figure/K-X_plot.png}
+  \caption{$K-\chi$ plot}
+  \label{K-X_plot}
+\end{figure}
+と書かれる。たとえば、V（バナジウム）金属の$K$は主に$K_{vv}$による、またPd、Ptの負のシフトは$K_d$に起因する。\par
+Kや$\chi$が温度変化している場合$\chi_d$が温度変化しているとして、$\chi_d$と$\chi_{\text{vv}}$を分離することができる。各温度における$K$を$\chi$に対してプロットすると実験点は一般に図\ref{K-X_plot}のA-Bのようになる。これを$K-\chi$プロットという。この直線の勾配が$H_{d}^{\text{hf}}$を与える。$\chi_{core}$を使って、原点を0まわりでずらせる。さらに$H_{orb}=2\left\langle1/r^3\right\rangle $を勾配とする直線OPを引き、$K-\chi$プロットの直線との交点Pを求める。このような方法でPd,Ptその他の$K_{\text{vv}},\chi_d$が求められてる。$H_{d}^{\text{hf}}$は波動関数の広がりやs-d混成効果によって敏感に変わるために理論的に評価することは簡単ではないので実験的に求めるしかないが、$\left\langle 1/r^3 \right\rangle$は計算値を使っても大きい誤差はない。
+
+\subsubsection{$f$電子系}
+ランタノイド元素やアクチノイド元素を含む$f$電子系希土類化合物では、希土類元素の原子核、たとえば、セリウム(Ce)原子核は、核磁気モーメントを持たず、ウラン(U)原子核は、自然存在比が少なく、核磁気モーメントが小さいためにNMRの観測は難しい。従って、非希土類元素の原子核を対象として、NMRを行う。局在性が強い$f$電子は、周りの構成元素の伝導電子と混成相互作用をしているので、$f$電子のスピン分極や時間的な揺らぎは、伝導電子を媒介にしたトランスファー超微細相互作用を通じて、周りの非希土類元素の核スピンに反映される結果、$f$電子系の情報が得られることになる。\par
+$f$電子は、スピンと軌道モーメントの結びつきが強いスピン軌道相互作用（LS相互作用）によって、$d$電子とは異なる特性を示す。このスピン軌道相互作用により、スピン磁気モーメント（$S$）と軌道磁気モーメント（$L$）は独立ではなく、全角運動量、$J = S + L$によって状態が指定される。この$J$多重項は、さらに結晶場効果によって分裂し、基底状態がクラマース2重項であれば擬スピンを定義できる場合が多い。$f$電子系の特徴は、LS相互作用のために、強い異方性をもち、高温での磁化率は結晶場分裂の大きさと温度の大小関係に依存し、複雑な温度変化を示す。
+
+一方、低温での磁化率は、温度に依存する擬スピン磁化率（$\chi_s$）と結晶場励起による温度にあまり依存しないヴァン・ヴレック磁化率（$\chi_{\text{vv}}$）からなる。伝導電子による寄与も存在するが、一般的には小さく、$f$電子と伝導電子との混成相互作用を通じてのトランスファー超微細相互作用に起因するナイトシフトが主要な寄与をする。f電子系の$\chi_{\text{vv}}$は、
+\begin{equation}
+  \chi_{\text{vv}, \alpha \beta} = \frac{2 \mu_B^2}{\hbar} \sum_{n} \frac{\langle 0 | J_{\alpha} | n \rangle \langle n | J_{\beta} | 0 \rangle}{E_n - E_0}
+\end{equation}
+と表せる。$J = S + L$を考慮すると、$\chi_{\text{vv}}$はスピン成分を含み、$f$原子上での伝導電子とのフント結合を通じて、スピン分極を引き起こす。この分極は、非希土類系原子核の核位置にトランスファーされ、超微細相互作用を通じてナイトシフトに寄与する。
+
+$f$電子系の擬スピン磁化率およびヴァン・ヴレック磁化率によるトランスファー超微細結合定数、$H_s$と$H_{\text{vv}}$は結晶場準位の占有数に依存するので一般に温度変化する。このため、$f$電子系では、$K$-$\chi$プロットによって、両者を分離できない。基底結晶場準位のみで状態を近似できる十分に低温では、非希土類系原子核のナイトシフトは、
+\begin{equation}
+K = K_s(T) + K_{\text{vv}} + K_c
+\end{equation}
+
+\begin{equation}
+K_{s, \alpha} = \frac{H_s}{N \mu_B} \chi_{s, \alpha}
+\end{equation}
+
+\begin{equation}
+K_{\text{vv}, \alpha} = \frac{H_{\text{vv}}}{N \mu_B} \chi_{\text{vv}, \alpha}
+\end{equation}
+
+として得られる。$H_s$の大きさ、符号、異方性は、分極される伝導電子の軌道波動関数の$s, p, d$対称性によって決まる。$d$対称伝導電子がフェルミ準位に現れない非希土類元素を含む系では、$H_s$は等方的で$f$電子スピン分極1$\mu_B$あたり数kOeから数十kOe程度、$d$対称伝導電子が現れる系では、マイナス数百kOe程度になる。前者では、最外殻にある$s$対称伝導電子スピンのわずかな分極がフェルミ接触相互作用を通じて、原子核位置に超微細磁場を生む。一方、後者の場合は、$d$対称伝導電子スピンと内殻$s$電子スピンとのフント結合を通じて、外部磁場とは反対方向に分極した内殻$s$電子スピン密度が相対的に大きくなるため符号は負となる。
+
+十分低温では、$\chi_{\text{vv}}$は温度変化しないので$H_{\text{vv}}$の大きさは評価できない。また、伝導電子のスピン、軌道からの寄与は無視できる。結果として、$f$電子系化合物の非希土類元素の原子核の超微細相互作用は、
+
+\begin{equation}
+H_{\text{hf}} = \sum_{l} H_{t, l} I \cdot J_l
+\end{equation}
+
+と書ける。ここで、$H_{t, l} = H_{s, l} + H_{\text{vv}, l}$、$l$は近接の$f$電子スピンについての和を意味する。
+
+\chapter{A.C.磁化率測定の原理}
+\section{線形応答理論}
+線形応答理論は、物理系が外部からの小さな摂動（外場）に対してどのように応答するかを記述する理論である。線形応答理論は以下の二つを前提とする。
+\begin{enumerate}[label=\textnormal{(\Roman*)}]
+  \item 入力が$a$倍されると、応答も単に$a$倍される。
+  \item 複数の入力に対する応答は、各入力に対する応答の和で表される。
+\end{enumerate}
+また、外場の影響で生じる物理量の変化が、外場に対して線形に依存するのは
+\begin{equation}
+  A(F)=A(0)+A'(0)F+O(F^2)
+\end{equation}
+などと物理量をパラメータ展開した時に、2次以降の項が十分無視できる、$F$が十分小さい時である。
+動的な外場$F(t)$を加えた時
 \chapter{先行研究}
+
 \section{Tsai型近似結晶の磁性}
 2021年東京理科大学の鈴木氏らは、Tsai型準結晶近似体の磁性に関する包括的な調査を行い、特に1/1および2/1近似体の磁気的性質について詳述している。
 本研究の主な焦点は、希土類元素（R）を含むTsai型1/1近似体において、電子数（e/a比）が磁気秩序に与える影響である。e/a比は準結晶やその近似体の磁気挙動を制御する重要なパラメータであり、特に磁化のCurie-Weiss温度（$\theta_p$）や磁気秩序がe/a比に応じて系統的に変化することが示された。\par
-Tsai型近似体の磁化率測定では、異なるe/a比に対応して強磁性（FM）、反強磁性（AF）、およびスピングラス的な状態が観察された。特に、反強磁性状態では磁化率が低温で尖ったピークを示し、反強磁性転移温度（$T_N$）が特定され、スピンフロップ現象が低磁場で見られたことから、異なる磁気秩序が存在することが示唆された。さらに、e/a比が1.54から2.16の範囲で、AF、FM、スピングラスの各領域が交互に出現することが観察され、特に反強磁性領域がTb系で広がっていることが示唆されている。スピン系における異方性が磁気秩序の形成に重要な役割を果たしていることも示唆され、1/1近似体の磁気相図が2/1近似体にも適用できる可能性が明らかになった。
-磁化率測定の結果からも、Tsai型準結晶近似体の磁気相が電子数に依存して変化することが確認され、今後の準結晶やその近似体における未発見の磁気相の探索に向けた基盤が提供された。
+Tsai型近似体の磁化率測定では、異なるe/a比に対応して強磁性（FM）、反強磁性（AF）、およびスピングラス的な状態が観察された。特に、反強磁性状態では磁化率が低温で尖ったピークを示し、反強磁性転移温度（$T_N$）が特定され、スピンフロップ現象が低磁場で見られたことから、異なる磁気秩序が存在することが示唆された。さらに、e/a比が1.54から2.16の範囲で、AF、FM、スピングラスの各領域が交互に出現することが観察され、特に反強磁性領域がTb系で広がっていることが示唆されている。スピン系における異方性が磁気秩序の形成に重要な役割を果たしていることも示唆された。よって、1/1近似体の磁気相図が2/1近似体にも適用できる可能性が明らかになった。磁化率測定の結果からも、Tsai型準結晶近似体の磁気相が電子数に依存して変化することが確認され、今後の準結晶やその近似体における未発見の磁気相の探索に向けた基盤が提供された。
 \begin{figure}[htbp]
   \centering
   \vspace{10mm}
@@ -227,7 +479,7 @@ Tsai型近似体の磁化率測定では、異なるe/a比に対応して強磁�
   \label{χ}
 \end{figure}
 
-\section{---に関する研究}
+\section{近似結晶における渦巻スピン秩序}
 
 \chapter{提案手法}
 \section{---}

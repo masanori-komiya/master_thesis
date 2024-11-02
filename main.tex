@@ -416,7 +416,7 @@ Kや$\chi$が温度変化している場合$\chi_d$が温度変化している�
 ランタノイド元素やアクチノイド元素を含む$f$電子系希土類化合物では、希土類元素の原子核、たとえば、セリウム(Ce)原子核は、核磁気モーメントを持たず、ウラン(U)原子核は、自然存在比が少なく、核磁気モーメントが小さいためにNMRの観測は難しい。従って、非希土類元素の原子核を対象として、NMRを行う。局在性が強い$f$電子は、周りの構成元素の伝導電子と混成相互作用をしているので、$f$電子のスピン分極や時間的な揺らぎは、伝導電子を媒介にしたトランスファー超微細相互作用を通じて、周りの非希土類元素の核スピンに反映される結果、$f$電子系の情報が得られることになる。\par
 $f$電子は、スピンと軌道モーメントの結びつきが強いスピン軌道相互作用（LS相互作用）によって、$d$電子とは異なる特性を示す。このスピン軌道相互作用により、スピン磁気モーメント（$S$）と軌道磁気モーメント（$L$）は独立ではなく、全角運動量、$J = S + L$によって状態が指定される。この$J$多重項は、さらに結晶場効果によって分裂し、基底状態がクラマース2重項であれば擬スピンを定義できる場合が多い。$f$電子系の特徴は、LS相互作用のために、強い異方性をもち、高温での磁化率は結晶場分裂の大きさと温度の大小関係に依存し、複雑な温度変化を示す。
 
-一方、低温での磁化率は、温度に依存する擬スピン磁化率（$\chi_s$）と結晶場励起による温度にあまり依存しないヴァン・ヴレック磁化率（$\chi_{\text{vv}}$）からなる。伝導電子による寄与も存在するが、一般的には小さく、$f$電子と伝導電子との混成相互作用を通じてのトランスファー超微細相互作用に起因するナイトシフトが主要な寄与をする。f電子系の$\chi_{\text{vv}}$は、
+一方、低温での磁化率は、温度に依存する擬スピン磁化率（$\chi_s$）と結晶場励起による温度にあまり依存しないヴァン・ヴレック磁化率（$\chi_{\text{vv}}$）からなる。伝導電子による寄与も存在するが、一般的には小さく、$f$電子と伝導電子との混成相互作用を通じてのトランスファー超微細相互作用に起因するナイトシフトが主要な寄与をする。$f$電子系の$\chi_{\text{vv}}$は、
 \begin{equation}
   \chi_{\text{vv}, \alpha \beta} = \frac{2 \mu_B^2}{\hbar} \sum_{n} \frac{\langle 0 | J_{\alpha} | n \rangle \langle n | J_{\beta} | 0 \rangle}{E_n - E_0}
 \end{equation}
@@ -456,14 +456,95 @@ H_{\text{hf}} = \sum_{l} H_{t, l} I \cdot J_l
 \begin{equation}
   A(F)=A(0)+A'(0)F+O(F^2)
 \end{equation}
-などと物理量をパラメータ展開した時に、2次以降の項が十分無視できる、$F$が十分小さい時である。
-動的な外場$F(t)$を加えた時
+などと物理量をパラメータ展開した時に、2次以降の項が十分無視できる、$F$が十分小さい時である。\par
+あるデルタ関数的な入力に対する応答を$\chi(t)$として、動的な外場$F(t)$をゆっくりと加えた時の応答を考える。前提(I)より応答$\chi(t)$は入力$F(t')$に比例して大きくなるので、
+\begin{equation}
+  F(t')\cdot\chi(t-t')
+\end{equation}
+また、前提()よりある時刻$t$における物理量$A(t)$は
+\begin{equation}
+ A(t)=A(t_0)+\int_{-\infty}^{t}{dt'F(t') \chi(t-t')}
+ \label{A(t)}
+\end{equation}
+と表せる。ここで式(\ref{A(t)})の第二項は、畳み込み積分とよばれ、ある時刻$t$における応答が過去の入力に対してどのように影響されるかを表す。
+\begin{figure}[htbp]
+  \centering
+  \vspace{10mm}
+  \includegraphics[width=160mm]{./figure/liner_theory.png}
+  \caption{線形応答理論}
+  \label{liner_theroy}
+\end{figure}
+
+また、応答が未来の原因から影響を受けないようにすることで、時間方向の矛盾を避け、物理系の時間対称性を保証すること（因果律）を考慮すると応答関数$\chi(t)$は
+\begin{align}
+  \chi^R(t) &= \chi(t)\theta(t) \label{chi_R} \\
+  \theta(t) &= \begin{cases} 
+     1 & (t > 0)  \\
+     0 & (t < 0)
+   \end{cases} \label{theta_w}
+ \end{align}
+と変換される。これを用いると、式(\ref{A(t)})は
+\begin{equation}
+  A(t)=A(t_0)+\int_{-\infty}^{\infty}{dt'F(t') \chi^R(t-t')}
+\end{equation}
+となる。$A(t)$をフーリエ変換$A(\omega)$を求める。
+\begin{equation}
+  A(\omega)=\int_{-\infty}^{\infty} \left( \int_{-\infty}^{\infty} F(t') \chi^R(t - t') \, dt' \right) e^{i \omega t} \, dt
+\end{equation}
+ここで積分の順序を入れ替えると
+\begin{equation}
+  A(\omega) = \int_{-\infty}^{\infty} F(t') \left( \int_{-\infty}^{\infty} \chi^R(t - t') e^{i \omega t} \, dt \right) dt'
+\end{equation}
+ここで、$\tau=t-t'$の置換を行うと、$t=\tau+t',dt=d\tau$であるから
+\begin{equation}
+  A(\omega) = \int_{-\infty}^{\infty} F(t') \left( \int_{-\infty}^{\infty} \chi^R(\tau) e^{i \omega (\tau + t')} \, d\tau \right) dt'
+\end{equation}
+
+積分の中で $e^{i \omega (\tau + t')}$ を分離すると、
+\begin{equation}
+  A(\omega)= \int_{-\infty}^{\infty} F(t') e^{i \omega t'} \left( \int_{-\infty}^{\infty} \chi^R(\tau) e^{i \omega \tau} \, d\tau \right) dt'
+\end{equation}
+となる。ここで、フーリエ変換の定義式から
+\begin{equation}
+  \int_{-\infty}^{\infty} F(t') e^{i \omega t'} \, dt' = \tilde{F}(\omega)
+\end{equation}
+\begin{equation}
+  \int_{-\infty}^{\infty} \chi^R(\tau) e^{i \omega \tau} \, d\tau = \tilde{\chi}^R(\omega)
+\end{equation}
+したがって、$A(t)$のフーリエ変換$A(\omega)$は
+\begin{equation}
+  A(\omega)= \tilde{F}(\omega) \tilde{\chi}^R(\omega)
+\end{equation}
+となる。ここで$\tilde{\chi}^R(\omega)$は感受率を表す。\par
+また、階段関数$\theta(t)$ のフーリエ変換は式(\ref{theta_w})からわかる通り、$t>0$においては$0$なので
+\begin{equation}
+  \tilde{\theta}(\omega) = \int_{0}^{\infty} e^{i \omega t} \, dt = \left[ \frac{e^{i \omega t}}{i \omega} \right]_{0}^{\infty}
+\end{equation}
+となる。
+このままだと$t \to \infty$で収束しないため、収束を保証するために $\omega$ に小さな虚数部分 $i \eta(\eta \to 0^+)$ を加える。したがって、
+\begin{equation}
+  \tilde{\theta}(\omega) = \int_{0}^{\infty} e^{i (\omega + i \eta) t} \, dt = \left[ \frac{e^{i (\omega + i \eta) t}}{i (\omega + i \eta)} \right]_{0}^{\infty}
+\end{equation}
+となり、これを評価すると、
+\begin{equation}
+  \tilde{\theta}(\omega) = \lim_{\eta \to 0^+} \frac{1}{i (\omega + i \eta)}
+\end{equation}
+となる。さらに、分母の虚数成分を分離し、デルタ関数の定義 $\delta(\omega) = \lim_{\eta \to 0^+} \frac{\eta}{\pi (\omega^2 + \eta^2)}$ を用いると、
+\begin{align}
+  \tilde{\theta}(\omega) &= \lim_{\eta \to 0^+} \left( \frac{\omega}{\omega^2 + \eta^2} - i \frac{\eta}{\omega^2 + \eta^2} \right)\\
+  &= \pi \delta(\omega) - \frac{i}{\omega}
+\end{align}
+となる。
+
 \chapter{先行研究}
 
 \section{Tsai型近似結晶の磁性}
 2021年東京理科大学の鈴木氏らは、Tsai型準結晶近似体の磁性に関する包括的な調査を行い、特に1/1および2/1近似体の磁気的性質について詳述している。
 本研究の主な焦点は、希土類元素（R）を含むTsai型1/1近似体において、電子数（e/a比）が磁気秩序に与える影響である。e/a比は準結晶やその近似体の磁気挙動を制御する重要なパラメータであり、特に磁化のCurie-Weiss温度（$\theta_p$）や磁気秩序がe/a比に応じて系統的に変化することが示された。\par
 Tsai型近似体の磁化率測定では、異なるe/a比に対応して強磁性（FM）、反強磁性（AF）、およびスピングラス的な状態が観察された。特に、反強磁性状態では磁化率が低温で尖ったピークを示し、反強磁性転移温度（$T_N$）が特定され、スピンフロップ現象が低磁場で見られたことから、異なる磁気秩序が存在することが示唆された。さらに、e/a比が1.54から2.16の範囲で、AF、FM、スピングラスの各領域が交互に出現することが観察され、特に反強磁性領域がTb系で広がっていることが示唆されている。スピン系における異方性が磁気秩序の形成に重要な役割を果たしていることも示唆された。よって、1/1近似体の磁気相図が2/1近似体にも適用できる可能性が明らかになった。磁化率測定の結果からも、Tsai型準結晶近似体の磁気相が電子数に依存して変化することが確認され、今後の準結晶やその近似体における未発見の磁気相の探索に向けた基盤が提供された。
+
+
+
 \begin{figure}[htbp]
   \centering
   \vspace{10mm}

@@ -40,7 +40,7 @@
 {\Large\noindent
 2025年X月XX日\\
 \vspace{\baselineskip}
-指導教員　伊藤哲明・小内貴祥    \\
+指導教員　伊藤哲明・小内貴祥 \\
 \vspace{\baselineskip}
 東京理科大学\\
 先進工学研究科物理工学専攻 \\
@@ -461,7 +461,7 @@ H_{\text{hf}} = \sum_{l} H_{t, l} I \cdot J_l
 \begin{equation}
   F(t')\cdot\chi(t-t')
 \end{equation}
-また、前提()よりある時刻$t$における物理量$A(t)$は
+また、前提($\textsc{ii}$)よりある時刻$t$における物理量$A(t)$は
 \begin{equation}
  A(t)=A(t_0)+\int_{-\infty}^{t}{dt'F(t') \chi(t-t')}
  \label{A(t)}
@@ -477,10 +477,10 @@ H_{\text{hf}} = \sum_{l} H_{t, l} I \cdot J_l
 
 また、応答が未来の原因から影響を受けないようにすることで、時間方向の矛盾を避け、物理系の時間対称性を保証すること（因果律）を考慮すると応答関数$\chi(t)$は
 \begin{align}
-  \chi^R(t) &= \chi(t)\theta(t) \label{chi_R} \\
-  \theta(t) &= \begin{cases} 
-     1 & (t > 0)  \\
-     0 & (t < 0)
+  \chi^R(t") &= \chi(t")\theta(t") \label{chi_R} \\
+  \theta(t") &= \begin{cases} 
+     1 & (t" > 0)  \\
+     0 & (t" < 0)
    \end{cases} \label{theta_w}
  \end{align}
 と変換される。これを用いると、式(\ref{A(t)})は
@@ -533,8 +533,145 @@ H_{\text{hf}} = \sum_{l} H_{t, l} I \cdot J_l
 \begin{align}
   \tilde{\theta}(\omega) &= \lim_{\eta \to 0^+} \left( \frac{\omega}{\omega^2 + \eta^2} - i \frac{\eta}{\omega^2 + \eta^2} \right)\\
   &= \pi \delta(\omega) - \frac{i}{\omega}
+  \label{theta_omega1}
 \end{align}
+となる。\par
+ここで、周波数領域での畳み込み積分は$\tilde{\theta}(\omega)$をもちいて
+\begin{equation}
+  \chi^R(\omega) = \frac{1}{2\pi}\int_{-\infty}^{\infty} \tilde{\theta}(\omega - \omega') \cdot \chi(\omega') \, d\omega'
+\end{equation}
+と表される。式(\ref{theta_omega1})を代入すると
+\begin{equation}
+  \chi^R(\omega) = \frac{1}{2\pi} \int_{-\infty}^{\infty} \left[ \pi \delta(\omega - \omega') - \frac{i}{(\omega - \omega')} \right]\chi(\omega') \, d\omega'
+\end{equation}
+ここで、デルタ関数の性質より
+\begin{equation}
+  \int_{-\infty}^{\infty} \delta(\omega - \omega') f(\omega') \, d\omega' = f(\omega)
+\end{equation}
+したがって、
+\begin{equation}
+  \frac{1}{2\pi} \cdot \pi \delta(\omega - \omega') \chi(\omega') = \frac{1}{2} \chi(\omega)
+\end{equation}
+また特異点を持つ項$-\frac{i}{\omega-\omega'}$は主値積分として扱い
+\begin{equation}
+  -\frac{i}{2\pi} \int_{-\infty}^{\infty} \frac{\chi(\omega')}{\omega - \omega'} \, d\omega' = -\frac{i}{2\pi} \, P\int_{-\infty}^{\infty} \frac{\chi(\omega')}{\omega - \omega'} \, d\omega'
+\end{equation}
+以上をまとめると
+\begin{equation}
+  \chi^R(\omega) = \frac{1}{2} \chi(\omega) - \frac{i}{2\pi} \, P \int_{-\infty}^{\infty} \frac{\chi(\omega')}{\omega' - \omega} \, d\omega'=\chi'(\omega)+i\chi"(\omega)
+\end{equation}
+となる。ここで、実部と虚部の関数$\chi'(\omega),\chi"(\omega)$はクラマース・クロニッヒの定理で結ばれる。
+\section{久保公式による応答関数の導出}
+時間依存のハミルトニアンを以下のように定義する。
+\begin{equation}
+  H(t) = H_0 - A F(t)
+\end{equation}
+ここで、密度行列 $\rho(t)$ の時間発展は、シュレディンガー方程式に従うので
+\begin{equation}
+  i\hbar \frac{d \rho(t)}{dt} = [H(t), \rho(t)] 
+\end{equation}
+さらに時間 $t = -\infty$ では、系は熱平衡状態にあるので
+\begin{equation}
+  \rho(-\infty) = \frac{1}{Z_0} e^{-\beta H_0} = \rho_0 
+\end{equation}
+ここで、$ Z_0 $ は分配関数、$ \beta = \dfrac{1}{k_B T} $ は逆温度である。\par
+外部場は断熱的にスイッチオンされるので
+\begin{equation}
+  F(t) = e^{s t} f(t), \quad s \rightarrow +0 
+\end{equation}
+ここで、$ s $ は正の無限小量であり、断熱的な導入を表現している。\par
+密度行列を摂動展開すると
+\begin{equation}
+  \rho(t) = \rho_0 + \rho_1(t) + O(F^2) 
+\end{equation}
+ここで、$ \rho_1(t)$ は外部場に対する一次の応答を表す。
+一次の項を取り出して、式 () に代入すると  
+\begin{equation}
+  i\hbar \frac{d \rho_1(t)}{dt} = [H_0 - A F(t), \rho_0 + \rho_1(t)]
+\end{equation}
+摂動の一次まで考慮し、二次以上の項を無視すると  
+\begin{equation}
+  i\hbar \frac{d \rho_1(t)}{dt} - [H_0, \rho_1(t)] = - F(t) [A, \rho_0] 
+\end{equation}
+ 相互作用描像における密度行列を次のように定義する。
+\begin{equation}
+  \rho_1(t) = e^{-i H_0 t / \hbar} \tilde{\rho}_1(t) e^{i H_0 t / \hbar}
+\end{equation}
+これを式 () に代入すると、方程式は
+\begin{equation}
+  i\hbar \frac{d \tilde{\rho}_1(t)}{dt} = - F(t) e^{i H_0 t / \hbar} [A, \rho_0] e^{-i H_0 t / \hbar} \label{eq:3.8}
+\end{equation}
+となる。両辺を時間 $ t' $ で積分すると
+\begin{equation}
+  \tilde{\rho}_1(t) = \frac{i}{\hbar} \int_{-\infty}^{t} dt' \, e^{i H_0 t' / \hbar} [A, \rho_0] e^{-i H_0 t' / \hbar} F(t') \label{eq:3.9}
+\end{equation}
+元の描像に戻すと
+\begin{equation}
+  \begin{aligned}
+    \rho_1(t) &= e^{-i H_0 t / \hbar} \tilde{\rho}_1(t) e^{i H_0 t / \hbar} \\
+    &= \frac{i}{\hbar} \int_{-\infty}^{t} dt' \, e^{-i H_0 (t - t') / \hbar} [A, \rho_0] e^{i H_0 (t - t') / \hbar} F(t') \label{eq:3.10}
+  \end{aligned}
+\end{equation}
+物理量 $ B $ の期待値は  
+\begin{equation}
+  \langle B \rangle_t = \mathrm{Tr}[\rho(t) B] \approx \mathrm{Tr}[\rho_1(t) B]
+\end{equation}
+これを計算すると
+\begin{equation}
+  \langle B \rangle_t = \frac{i}{\hbar} \int_{-\infty}^{t} dt' \, \mathrm{Tr}\left( e^{-i H_0 (t - t') / \hbar} [A, \rho_0] e^{i H_0 (t - t') / \hbar} B \right) F(t')
+\end{equation}
+ハミルトニアン $H_0$ に関する演算子の時間依存性を用いて、$A(t) = e^{i H_0 t / \hbar} A e^{-i H_0 t / \hbar}$ と表せるので 
+\begin{equation}
+  \langle B \rangle_t = \frac{i}{\hbar} \int_{-\infty}^{t} dt' \, \mathrm{Tr}\left( [A(t' - t), \rho_0] B \right) F(t') 
+\end{equation}
+さらに、トレースの性質と交換子の循環性を利用すると
+\begin{equation}
+  \langle B \rangle_t = \frac{i}{\hbar} \int_{-\infty}^{t} dt' \, \mathrm{Tr}\left( \rho_0 [B, A(t - t')] \right) F(t') 
+\end{equation}
+という形になる。よって応答関数は
+\begin{equation}
+  K_{BA}(t - t') = \frac{i}{\hbar} \mathrm{Tr}\left( \rho_0 [B, A(t - t')] \right)
+\end{equation}
+である。
+\section{線形応答理論の具体例-減衰調和振動子}
+図のようなばねに繋がれた物体が摩擦のある面を振動する時を考える。\par
+この系の運動方程式は
+\begin{equation}
+  F=\left(m\left(\frac{d}{dt}\right)^2+\alpha\frac{d}{dt}+K\right)
+\end{equation}
+この運動方程式をフーリエ変換すると
+\begin{equation}
+ F(\omega)=(-m\omega^2+i\alpha\omega+k)\chi(\omega)
+\end{equation}
+共鳴周波数$\omega_0^2=k/m$、摩擦係数$\gamma=\alpha/m$を用いると
+\begin{equation}
+  F(\omega)=m(\omega_0^2-\omega^2-i\omega\gamma)\chi(\omega)
+\end{equation}
+となる。よって、感受率は
+\begin{equation}
+ \chi^R(\omega)=\frac{A(\omega)}{F(\omega)}=\frac{1}{m(\omega_0^2-\omega^2-i\omega\gamma)}=\frac{(\omega_0^2 - \omega^2)/m}
+ {\left(\omega_0^2 - \omega^2\right)^2 + \left(\omega \gamma\right)^2} + i \frac{\omega \gamma / m}{\left(\omega_0^2 - \omega^2\right)^2 + \left(\omega \gamma\right)^2}
+\end{equation}
 となる。
+\section{磁化率の場合}
+磁化率Mの外場に対する応答を考える。磁化$M$が外場$H$に対してどのように応答するのかを記述する微分方程式は
+\begin{equation}
+ \alpha\dot{M}+kM=H 
+\end{equation}
+で表される。ここで、第一項は磁化の減衰をあらわす項であり、第二項は磁化の復元力を表す。\par
+この微分方程式から得られる感受率は
+\begin{equation}
+  \chi_M^R = \frac{1/k}{1-i\omega\tau} \left(\tau= \frac{\alpha}{k}/\right)
+\end{equation}
+である。ここに等温応答
+\begin{figure}[htbp]
+  \centering
+  \vspace{10mm}
+  \includegraphics[width=160mm]{./figure/outou.png}
+  \label{outou}
+\end{figure}
+
+
 
 \chapter{先行研究}
 

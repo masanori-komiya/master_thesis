@@ -218,12 +218,12 @@ X線や電子線の回折スペクトルに端的に現れる。ここで、個�
 \end{equation}
 である。電子の運動量$\bm p$およびスピン$\bm s$との相互作用のハミルトン二アンは
 \begin{equation}
-  \mathcal{H} = \frac{1}{2m}\left(\bm p + \frac{e}{c}\bm A(\bm r)\right)^2 + 2\mu_B \bm s\cdot\nabla\times\bm A
+  \mathcal{H} = \frac{1}{2m}\left(\bm p + \frac{e}{c}\bm A(\bm r)\right)^2 + 2\mu_{\text B} \bm s\cdot\nabla\times\bm A
   \label{H}
 \end{equation}
 であり、$\bm A(\bm r)=0$からの差は
 \begin{align} 
-    \mathcal{H}_l&=\frac{e}{2mc}(\bm p\cdot \bm A+\bm A\cdot\bm p+\frac{e}{c}\bm A^2)+2\mu_B\bm s\cdot\left(\nabla\times\left(\nabla\times\frac{\mu_n}{r}\right)\right)\\
+    \mathcal{H}_l&=\frac{e}{2mc}(\bm p\cdot \bm A+\bm A\cdot\bm p+\frac{e}{c}\bm A^2)+2\mu_{\text B}\bm s\cdot\left(\nabla\times\left(\nabla\times\frac{\mu_n}{r}\right)\right)\\
     &=\mathcal{H}_l+\mathcal{H}_s+\frac{e^2}{2mc^2}\bm A^2
 \end{align}
 となる。ここで、
@@ -232,7 +232,7 @@ X線や電子線の回折スペクトルに端的に現れる。ここで、個�
   \label{H_l}
 \end{equation}
 \begin{equation}
-  \mathcal{H}_s=2\mu_B\bm s\cdot\left(\nabla\times\left(\nabla\times\frac{\mu_n}{r}\right)\right)
+  \mathcal{H}_s=2\mu_{\text B}\bm s\cdot\left(\nabla\times\left(\nabla\times\frac{\mu_n}{r}\right)\right)
   \label{H_s}
 \end{equation}
 まず、式(\ref{H_l})の$\mathcal{H}_l$について考える。
@@ -243,9 +243,9 @@ X線や電子線の回折スペクトルに端的に現れる。ここで、個�
 \begin{equation}
   \mathcal{H}_l=\frac{e}{2mc}\left(\bm p\cdot\frac{\bm{\mu}_n\times\bm{r}}{r^3}+\frac{\bm{\mu}_n\times\bm{r}}{r^3}\cdot\bm{p}\right)
 \end{equation}
-となり、$\bm{r}\times\bm{p}=\hbar\bm{l}$、$\mu_B=e\hbar/2mc$をつかって
+となり、$\bm{r}\times\bm{p}=\hbar\bm{l}$、$\mu_{\text B}=e\hbar/2mc$をつかって
   \begin{align}
-    \mathcal{H}_l&=2\mu_B\frac{\bm{I}\cdot\bm{l}}{r^3}\\
+    \mathcal{H}_l&=2\mu_{\text B}\frac{\bm{I}\cdot\bm{l}}{r^3}\\
     &=\gamma_e\gamma_n\hbar^2\frac{\bm{I}\cdot\bm{l}}{r^3}
     \label{H_orb}
   \end{align}
@@ -256,13 +256,13 @@ X線や電子線の回折スペクトルに端的に現れる。ここで、個�
 \end{equation}
 を用いると、
 \begin{equation}
-  \mathcal{H}_s=2\mu_B\left[(\bm{s}\cdot\nabla)(\mu_n\cdot\nabla)\frac{1}{r}-\frac{1}{3}\bm{s}\cdot\Delta\frac{\mu_n}{r}\right]-\frac{4}{3}\mu_B\bm{s}\cdot\Delta\frac{\bm{\mu}_n}{r}
+  \mathcal{H}_s=2\mu_{\text B}\left[(\bm{s}\cdot\nabla)(\mu_n\cdot\nabla)\frac{1}{r}-\frac{1}{3}\bm{s}\cdot\Delta\frac{\mu_n}{r}\right]-\frac{4}{3}\mu_{\text B}\bm{s}\cdot\Delta\frac{\bm{\mu}_n}{r}
   \label{H_s_2}
 \end{equation}
 となる。第１項は
 \begin{align}
-  \mathcal{H}_s^1 &= 2 \mu_B \sum_{i,j} s_{x_i} \frac{\partial^2}{\partial x_i \partial x_j} \mu_{n x_j} \left( \frac{1}{r} \right) - \frac{1}{3} s_{x_i} \mu_{n x_i} \frac{\partial^2}{\partial x_j^2} \left( \frac{1}{r} \right)\\
-  &=2\mu_B \sum_{i,j} s_{x_i} \mu_{n x_j} \Lambda_{ij}
+  \mathcal{H}_s^1 &= 2 \mu_{\text B} \sum_{i,j} s_{x_i} \frac{\partial^2}{\partial x_i \partial x_j} \mu_{n x_j} \left( \frac{1}{r} \right) - \frac{1}{3} s_{x_i} \mu_{n x_i} \frac{\partial^2}{\partial x_j^2} \left( \frac{1}{r} \right)\\
+  &=2\mu_{\text B} \sum_{i,j} s_{x_i} \mu_{n x_j} \Lambda_{ij}
 \end{align}
 \begin{align}
   \Lambda_{ij} &= \frac{1}{3} \left(3 \frac{\partial^2}{\partial x_i \partial x_j} - \delta_{ij} \sum_k \frac{\partial^2}{\partial x_k^2} \right) \left( \frac{1}{r} \right)\\
@@ -270,7 +270,7 @@ X線や電子線の回折スペクトルに端的に現れる。ここで、個�
 \end{align}
 と書かれる。ここで$x_1,x_2,x_3$は$x,y,z$を表す。$r\neq0$では$\mathcal{H}_s^l$は磁気双極子相互作用
 \begin{equation}
-  -\frac{2\mu_B\bm{s}\cdot\bm{\mu}_n}{r^3}+\frac{3(\mu_B\bm{s}\cdot\bm{r})(\bm{\mu}_n\cdot\bm{r})}{r^5}
+  -\frac{2\mu_{\text B}\bm{s}\cdot\bm{\mu}_n}{r^3}+\frac{3(\mu_{\text B}\bm{s}\cdot\bm{r})(\bm{\mu}_n\cdot\bm{r})}{r^5}
 \end{equation}
 であり、式\ref{H_s_2}第２項$\mathcal{H}_s^2$は0となる。一方、$r\to0$では
 \begin{equation}
@@ -278,7 +278,7 @@ X線や電子線の回折スペクトルに端的に現れる。ここで、個�
 \end{equation}
 であるから
 \begin{align}
-  \mathcal{H}_s^2&=\frac{16}{3}\pi \mu_B \bm{s}\cdot\bm{\mu}_n|\psi_s(0)|^2\\
+  \mathcal{H}_s^2&=\frac{16}{3}\pi \mu_{\text B} \bm{s}\cdot\bm{\mu}_n|\psi_s(0)|^2\\
   &=\frac{8}{3}\pi \gamma_e\gamma_n\hbar^2|\psi_s(0)|^2\bm{s}\cdot\bm{I}
 \end{align}
 となり、$\mathcal{H}_s^1$が消える。以上の議論から、核スピンと電子スピンの相互作用$\mathcal{H}_s$は磁気双極子相互作用
@@ -359,17 +359,19 @@ $H_l,H_s$は基本的な相互作用であるが、間接的な相互作用と�
   K_s = \frac{\Delta H}{H_0} = - \frac{\Delta E}{\gamma_n \hbar I} \frac{1}{H_0} = \frac{8 \pi}{3} | u_{k_F}(0) |^2 \chi_P
   \label{K_s}
 \end{equation}
-電子間の相互作用を無視すると、\(\chi_P = 2 \mu_B^2 N(E_F)\) である。ここで \(N(E_F)\) はフェルミ面での単位体積あたりの1スピン状態密度である。孤立原子内の波動関数を \(\psi_a(\bm{r})\)、1原子あたりのスピン磁化率を \(\chi_P^a\) とすると、式(\ref{K_s})より
+電子間の相互作用を無視すると、\(\chi_P = 2 \mu_{\text B}^2 N(E_F)\) である。ここで \(N(E_F)\) はフェルミ面での単位体積あたりの1スピン状態密度である。孤立原子内の波動関数を \(\psi_a(\bm{r})\)、1原子あたりのスピン磁化率を \(\chi_P^a\) とすると、式(\ref{K_s})より
 \begin{equation}
   K_s = \frac{8 \pi}{3} |\psi_a(0)|^2 \xi \chi_P^a
+  \label{K_s_3}
 \end{equation}
-と書ける。 $\xi$ は孤立原子内と金属内での波動関数の広がりの違いを表すパラメータで、1より小さい。$K_s$ は正である。$s$電子1$\mu_B$ あたりの超微細磁場$H_{s}^{\text{hf}}$ を定義すると、式(\ref{H_F_2})より
+と書ける。 $\xi$ は孤立原子内と金属内での波動関数の広がりの違いを表すパラメータで、1より小さい。$K_s$ は正である。$s$電子1$\mu_{\text B}$ あたりの超微細磁場$H_{s}^{\text{hf}}$ を定義すると、式(\ref{H_F_2})より
 \begin{equation}
-  H_{s}^{\text{hf}} = \frac{8}{3 \pi} \mu_B |\psi_a(0)|^2 = \frac{4}{3 \pi} \gamma_e \hbar |\psi_a(0)|^2
+  H_{s}^{\text{hf}} = \frac{8}{3 \pi} \mu_{\text B} |\psi_a(0)|^2 = \frac{4}{3 \pi} \gamma_e \hbar |\psi_a(0)|^2
+  \label{K_s_N}
 \end{equation}
 であるから
 \begin{equation}
-  K_s = \frac{H_{s}^{\text{hf}}}{N \mu_B} \chi_P
+  K_s = \frac{H_{s}^{\text{hf}}}{N \mu_{\text B}} \chi_P
   \label{K_s_2}
 \end{equation}
 とも書ける。 \(N\) は単位体積中の電子の数である。ここで \(\xi = 1\) とした。
@@ -377,20 +379,20 @@ $H_l,H_s$は基本的な相互作用であるが、間接的な相互作用と�
 \subsubsection{$d$電子系}
 遷移金属では$d$バンドが高い状態密度をもち、大きいスピン磁化率$\chi_d$を持つ。$d$電子は、核と直接のフェルミ接触相互作用を持たないが、式(\ref{H_core})の内殻偏極の相互作用をもつ。これに起因するナイトシフトは
 \begin{equation}
-  K_{\text{core}} = \frac{8\pi}{3} \chi_d \sum_i \left( |\psi_i(0)|^2_{\uparrow} - |\psi_i(0)|^2_{\downarrow} \right) = \frac{H_d^{\text{hf}}}{N\mu_B} \chi_d
+  K_{\text{core}} = \frac{8\pi}{3} \chi_d \sum_i \left( |\psi_i(0)|^2_{\uparrow} - |\psi_i(0)|^2_{\downarrow} \right) = \frac{H_d^{\text{hf}}}{N\mu_{\text B}} \chi_d
   \label{K_core}
 \end{equation}
-と書けて負である。ここで$H_d^{\text{hf}}$はd電子1$\mu_B$あたりの内殻偏極による超微細磁場である。
+と書けて負である。ここで$H_d^{\text{hf}}$はd電子1$\mu_{\text B}$あたりの内殻偏極による超微細磁場である。
 軌道角運動量によるシフトは
 \begin{equation}
-  K_{\text{orb}} = \frac{2 \chi_{\text{orb}}}{\langle r^3 \rangle} = \frac{H_{\text{orb}}^{\text{hf}}}{N \mu_B} \chi_{\text{orb}}
+  K_{\text{orb}} = \frac{2 \chi_{\text{orb}}}{\langle r^3 \rangle} = \frac{H_{\text{orb}}^{\text{hf}}}{N \mu_{\text B}} \chi_{\text{orb}}
   \label{K_orb}
 \end{equation}
 
-と書けて正である。$H_{\text{orb}}^{\text{hf}}$は1$\mu_B$あたりの軌道磁気モーメントによる超微細磁場である。軌道角運動量は電子がバンドを作り遍歴することにより消失するが、磁場との相互作用の2次摂動により一部復活する。$\chi_{\text{orb}}$はこの復活した軌道角運動量に伴う磁化に対応するもので温度によらない。
+と書けて正である。$H_{\text{orb}}^{\text{hf}}$は1$\mu_{\text B}$あたりの軌道磁気モーメントによる超微細磁場である。軌道角運動量は電子がバンドを作り遍歴することにより消失するが、磁場との相互作用の2次摂動により一部復活する。$\chi_{\text{orb}}$はこの復活した軌道角運動量に伴う磁化に対応するもので温度によらない。
 $K_{\text{orb}}$ の表式は下の通りである。ここで、$m, n$は各バンドを示す。
 \begin{equation}
-  K_{\text{orb}} = \frac{2 \mu_B^2}{\hbar^2} \sum_{m,n} \int dk \frac{f(E_{mk}) - f(E_{nk})}{E_{mk} - E_{nk}} \left| \langle nk | L_z | mk \rangle \right|^2
+  K_{\text{orb}} = \frac{2 \mu_{\text B}^2}{\hbar^2} \sum_{m,n} \int dk \frac{f(E_{mk}) - f(E_{nk})}{E_{mk} - E_{nk}} \left| \langle nk | L_z | mk \rangle \right|^2
 \end{equation}
 式(\ref{K_s_2}), 式(\ref{K_core}), 式(\ref{K_orb})の磁化率とシフトとの関係は電子系がバンドを作って結晶内を遍歴しているか、あるいは局在しているかに拘わらず成立する表式である。実際ナイトシフトは最初は金属におけるシフトを意味したが、現在は非金属磁性体を含めてシフトをナイトシフトと呼んでいる。この場合、ナイトシフトは温度変化する。金属の場合でも伝導帯の幅が狭く、フェルミ温度が低い場合や電子間の相関が強くなるとスピン磁化率は温度変化し、したがって$K_d$は温度に依存する。$\chi_{\text{orb}}$は本質的には化合物磁性体におけるヴァン・ヴレック(Van Vleck)磁化率と同じで、以後$K_{\text{orb}}, \chi_{\text{orb}}$を$K_{\text{vv}}, \chi_{\text{vv}}$と記す。
 一般に遷移金属における磁化率は
@@ -418,7 +420,7 @@ $f$電子は、スピンと軌道モーメントの結びつきが強いスピ�
 
 一方、低温での磁化率は、温度に依存する擬スピン磁化率（$\chi_s$）と結晶場励起による温度にあまり依存しないヴァン・ヴレック磁化率（$\chi_{\text{vv}}$）からなる。伝導電子による寄与も存在するが、一般的には小さく、$f$電子と伝導電子との混成相互作用を通じてのトランスファー超微細相互作用に起因するナイトシフトが主要な寄与をする。$f$電子系の$\chi_{\text{vv}}$は、
 \begin{equation}
-  \chi_{\text{vv}, \alpha \beta} = \frac{2 \mu_B^2}{\hbar} \sum_{n} \frac{\langle 0 | J_{\alpha} | n \rangle \langle n | J_{\beta} | 0 \rangle}{E_n - E_0}
+  \chi_{\text{vv}, \alpha \beta} = \frac{2 \mu_{\text B}^2}{\hbar} \sum_{n} \frac{\langle 0 | J_{\alpha} | n \rangle \langle n | J_{\beta} | 0 \rangle}{E_n - E_0}
 \end{equation}
 と表せる。$J = S + L$を考慮すると、$\chi_{\text{vv}}$はスピン成分を含み、$f$原子上での伝導電子とのフント結合を通じて、スピン分極を引き起こす。この分極は、非希土類系原子核の核位置にトランスファーされ、超微細相互作用を通じてナイトシフトに寄与する。
 
@@ -428,14 +430,14 @@ K = K_s(T) + K_{\text{vv}} + K_c
 \end{equation}
 
 \begin{equation}
-K_{s, \alpha} = \frac{H_s}{N \mu_B} \chi_{s, \alpha}
+K_{s, \alpha} = \frac{H_s}{N \mu_{\text B}} \chi_{s, \alpha}
 \end{equation}
 
 \begin{equation}
-K_{\text{vv}, \alpha} = \frac{H_{\text{vv}}}{N \mu_B} \chi_{\text{vv}, \alpha}
+K_{\text{vv}, \alpha} = \frac{H_{\text{vv}}}{N \mu_{\text B}} \chi_{\text{vv}, \alpha}
 \end{equation}
 
-として得られる。$H_s$の大きさ、符号、異方性は、分極される伝導電子の軌道波動関数の$s, p, d$対称性によって決まる。$d$対称伝導電子がフェルミ準位に現れない非希土類元素を含む系では、$H_s$は等方的で$f$電子スピン分極1$\mu_B$あたり数kOeから数十kOe程度、$d$対称伝導電子が現れる系では、マイナス数百kOe程度になる。前者では、最外殻にある$s$対称伝導電子スピンのわずかな分極がフェルミ接触相互作用を通じて、原子核位置に超微細磁場を生む。一方、後者の場合は、$d$対称伝導電子スピンと内殻$s$電子スピンとのフント結合を通じて、外部磁場とは反対方向に分極した内殻$s$電子スピン密度が相対的に大きくなるため符号は負となる。
+として得られる。$H_s$の大きさ、符号、異方性は、分極される伝導電子の軌道波動関数の$s, p, d$対称性によって決まる。$d$対称伝導電子がフェルミ準位に現れない非希土類元素を含む系では、$H_s$は等方的で$f$電子スピン分極1$\mu_{\text B}$あたり数kOeから数十kOe程度、$d$対称伝導電子が現れる系では、マイナス数百kOe程度になる。前者では、最外殻にある$s$対称伝導電子スピンのわずかな分極がフェルミ接触相互作用を通じて、原子核位置に超微細磁場を生む。一方、後者の場合は、$d$対称伝導電子スピンと内殻$s$電子スピンとのフント結合を通じて、外部磁場とは反対方向に分極した内殻$s$電子スピン密度が相対的に大きくなるため符号は負となる。
 
 十分低温では、$\chi_{\text{vv}}$は温度変化しないので$H_{\text{vv}}$の大きさは評価できない。また、伝導電子のスピン、軌道からの寄与は無視できる。結果として、$f$電子系化合物の非希土類元素の原子核の超微細相互作用は、
 
@@ -444,6 +446,182 @@ H_{\text{hf}} = \sum_{l} H_{t, l} I \cdot J_l
 \end{equation}
 
 と書ける。ここで、$H_{t, l} = H_{s, l} + H_{\text{vv}, l}$、$l$は近接の$f$電子スピンについての和を意味する。
+
+\section{核スピン緩和現象}
+\subsection{金属における核磁気緩和率}
+スピン格子緩和（縦緩和）は物質内の核スピンが周囲の環境（主に伝導電子など）とエネルギーを交換し、磁化が熱平衡に戻るプロセスを示す。この緩和は核スピンを取り巻く動的な情報を提供し、物質の種類に応じて異なる特性を示す。まず、金属における核スピンと伝導電子との相互作用による$T_1$について考える。$s$バンド電子による緩和はフェルミの接触相互作用
+\begin{equation}
+  H = -\frac{3\pi}{8} \gamma_e \gamma_n \hbar^2 \delta(r) \left( I_z S_z + \frac{1}{2} \left( I_+ S_- + I_- S_+ \right) \right)
+\end{equation}
+による。伝導電子はこの相互作用により核スピンとスピンを交換し、運動量を$\hbar\bm k$から$\hbar \bm k'$へと変化させる。この遷移の前後の始状態を$|\psi_i \rangle $、終状態を$|\psi_f\rangle$とすると
+\begin{align}
+  |\psi_i\rangle &= u_{\bm k}(r)e^{i\bm{k} \cdot \bm{r}} | \downarrow, n \uparrow \rangle = | \bm{k} \downarrow, n \uparrow \rangle, \\
+  |\psi_f\rangle &= u_{\bm k'}(r)e^{i\bm{k'} \cdot \bm{r}} | \uparrow, n \downarrow \rangle = | \bm{k'} \uparrow, n \downarrow \rangle
+\end{align}
+となる。始状態と終状態のエネルギーを$E_i,E_f$とすると、$\hbar(\omega_e-\omega_n)\simeq\omega_e$は非常に小さいので($\omega_e,\omega_n$は電子スピン、核スピンのゼーマン周波数)、遷移確率は
+\begin{align}
+  W_{\bm k,\bm k'} &\simeq \sum_{\bm{k},\bm{k'}} \frac{2\pi}{\hbar} \left( \frac{8\pi}{3} \gamma_e \gamma_n \hbar^2 \right)^2 \left| \langle \bm k |\delta(\bm r)|\bm k' \rangle \right|^2  \frac{1}{4} \delta(E_{\bm{k}} - E_{\bm{k'}})\\
+  &= \int \int \frac{2\pi}{\hbar} \left( \frac{8\pi}{3} \gamma_e \gamma_n \hbar^2 \right)^2 \left| \langle \bm k |\delta(\bm r)| \bm k' \rangle \right|^2 \frac{1}{4} \delta(E_{\bm k} - E_{\bm k'}) \nonumber \\
+  &\quad \times N(E_{\bm k}) N(E_{\bm k'}) f(E_{\bm k})(1 - f(E_{\bm k'})) \, dE_{\bm k} \, dE_{\bm k'}
+\end{align}
+となる。ここで、$N(E_{\bm{k}})$,$f(E_{\bm{k'}})$は状態密度とフェルミ関数である。また
+\begin{equation}
+  f(E_{\bm k})(1 - f(E_{\bm k})) \simeq -k_{\text B} T \frac{\partial f(E_{\bm k})}{\partial E_{\bm k}}\simeq k_{\text B} T \, \delta(E - E_F)
+\end{equation}
+であるから
+\begin{equation}
+  \frac{1}{T_1}=2W=\frac{64}{9}\pi^3\gamma^2_e\gamma^2_n\hbar^3|u_{k_F}(0)|^4N^2(E_F)k_{\text B}T
+  \label{T1metal}
+\end{equation}
+となり、$1/T_1$は$T$に比例する。ここで、式(\ref{K_s_3})と式(\ref{T1metal})から、$T_1$と$K_s$の関係
+\begin{equation}
+  T_1TK^2_s=\frac{\hbar}{4\pi k_{\text B}}\left(\frac{\gamma_e}{\gamma_n}\right)^2
+\end{equation}
+が得られる。これをコリンハの関係式という。\par
+式(\ref{K_s_N})のように$s$電子1個あたりの超微細磁場$H^s_{hf}$を用いると、式(\ref{T1metal})は
+\begin{equation}
+  \left(\frac{1}{T_1}\right)_F = \frac{4\pi}{\hbar}(\gamma_n\hbar H^s_hf)^2\frac{N^2(E_F)}{N^2}k_{\text B}T
+\end{equation}
+ともかける。これは$s$電子のフェルミの接触相互作用による$T_1$である。
+
+\subsection{核磁気緩和率一般的表示}
+磁性体、超電導物資、強相関で物質の構成元素の非磁性原子、磁性原子の核スピン系と電子スピン系は、ほとんどの場合スカラー型の磁気的相互作用をしており、全ハミルトニアンは、
+\begin{equation}
+ \mathcal H_{IS} = -\gamma_n\hbar I_z\cdot H_z + \sum_l H_{s,l} \left(I_z S_{lz}+\frac{1}{2}\left\{I_+ S_{l-}(t)+I_-S_{l+}(t)\right\}\right) + \mathcal H_e
+\end{equation}
+と書ける。ここで、各項は次の要素からなる。
+\begin{itemize}
+  \item 第一項: $-\gamma_n \hbar I_z \cdot H_z$\\
+  核スピン $I_z$ が外部磁場 $H_z$ と相互作用するゼーマンエネルギー
+  \item 第二項: $H_{s,l} I_z S_{lz}$\\
+  核スピン $I_z$ と電子スピン $S_{lz}$ のz方向成分の相互作用（長距離相互作用成分も含む）
+  \item 第三項: $\frac{1}{2} \left\{ I_+ S_{l-}(t) + I_- S_{l+}(t) \right\}$\\
+  スピンと電子スピンが相互に状態を交換する、いわゆる「スピンフリップフロップ」過程を表す。
+  \item 第四項: $\mathcal H_e$\\
+  他の環境や結晶場との相互作用を含むエネルギー項
+\end{itemize}
+時間に依存する摂動、$\mathcal H'_{IS}(t) = (H_{s,l}/2)\left\{I_+S_{l-}+I_-S_{l+}\right\}$による核スピンレベル、$I_z=|m\rangle,|m+1\rangle $間の遷移確率は、電子スピン系の固有状態、$|M\rangle,|M'\rangle$のエネルギー保存則、$\hbar \omega_n = E_M - E_{M'}$を満たす遷移を伴って、
+\begin{equation}
+  W_{m\rightarrow m+1} = \frac{2\pi}{\hbar} \sum_{M,M'}P_M|\langle m+1,M'|\mathcal H'_{IS}(t)|m,M\rangle|^2 \delta(E_M-E_{M'}-\hbar \omega_n) 
+\end{equation}
+で与えられる。ここで、$\omega_n$は核スピン系ゼーマン周波数、$P_M$は電子スピン系の固有状態$|M\rangle$の温度$T$における統計分布確率である。
+\begin{equation}
+  \delta(x) = \frac{1}{2\pi} \int_{-\infty}^{\infty} e^{i x t} \, dt
+\end{equation}
+を使って変形すると
+\begin{equation}
+  W_{m \rightarrow m+1} = \frac{H_{s,l, \perp}^2}{4} (I - m)(I + m + 1) \sum_{M, l} P_M \left\langle M \left| S_{l+}(t)S_{l-}(0) \right| M \right\rangle e^{-i \hbar \omega_n t} \, dt
+\end{equation}
+が得られる。
+\begin{equation}
+  \frac{1}{T_1}=\frac{W_{m \rightarrow m+1}+W_{m+1\rightarrow m}}{(I-m)(I+m+1)}
+\end{equation}
+であるから、$T_1$ は
+\begin{equation}
+  \frac{1}{T_1} = \sum_{l}\frac{H^2_{s,l,\bot}}{4}\int_{-\infty}^{\infty} \langle S_l^+(t) S_l^-(0) + S_l^-(t) S_l^+(0) \rangle e^{-i \hbar \omega_n t} \,dt
+\end{equation}
+を得る。ここで$[A,B]=(AB+BA)/2$を使って、まとめると
+\begin{equation}
+  \frac{1}{T_1} = \frac{1}{2} \sum_l H_{s,l, \perp}^2 \int_{-\infty}^{\infty} \langle [S_{l+}(t), S_{l-}(0)] \rangle e^{-i \hbar \omega_n t} \, dt
+\end{equation}
+このように，$1/T_1$は電子スピンのゆらぎの時間相関関数のフーリエ周波数スペクトルの成分の中で，NMR周波数 $\omega_n$ でのスペクトル密度に比例している。さらに，$ \bm{S}(\bm q) = \sum_l \bm{S}_l e^{i \bm q \cdot \bm {r_l}}$ とフーリエ展開すると，
+\begin{equation}
+\frac{1}{T_1} = \frac{1}{2} \sum_{\bm q} (\bm H_{\bm q} \bm H_{-\bm {q}})_{\perp} \int_{-\infty}^{\infty} \langle [S_+(-\bm {q}, t), S_-(\bm {q}, 0)] \rangle e^{-i \hbar \omega_n t} \, dt
+\end{equation}
+常磁性状態では揺動散逸定理により，
+\begin{equation}
+  \frac{1}{2} \int_{-\infty}^{\infty} \langle [S_+(-\bm {q}, t), S_-(\bm q, 0)] \rangle e^{-i \hbar \omega_n t} \, dt = \frac{2 \chi''_{\perp}(\bm q, \omega_n)}{(2\mu_{\text B})^2(1 - e^{-\hbar \omega_n / k_{\text B} T})}
+\end{equation}
+に従う。ここで、$\hbar\omega_n\ll k_{\text B}T$を考慮すると
+\begin{equation}
+\frac{1}{T_1} = \frac{2 k_{\text B} T}{\hbar (2 \mu_{\text B})^2} \sum_{\bm q} (\bm H_{\bm q} \bm H_{-\bm {q}})_{\perp} \frac{\chi''_{\perp}(\bm q, \omega_n)}{\omega_n}
+\label{T1_a}
+\end{equation}
+$ \chi''_{\perp}(\bm q, \omega) $ は波数 $ \bm q $ および角周波数 $ \omega $ に依存する動的磁化率の虚数部であり、$\sum _{\bm q}\chi''_{\perp}(\bm q, \omega)$から全波数の和となることがわかる。また、$\bot$はNMR/NQRでの磁場および、電場勾配の主軸、すなわち核スピン系の量子化軸に対して垂直な成分を表している。通常金属の場合、動的帯磁率は、
+フェルミ分布関数 $ f(\varepsilon) $ を用いると
+\begin{equation}
+\chi_0(\bm q, \omega) = (2\mu_{\text B})^2 \sum_{\bm k} \frac{f(\varepsilon_{\bm k+\bm q}) - f(\varepsilon_{\bm k})}{\hbar \omega - (\varepsilon_{\bm k+\bm q} - \varepsilon_{\bm k}) + i \Gamma}
+\end{equation}
+となる。ここで$\chi_0(\bm q, \omega)=\chi'_0(\bm q,\omega)-i\chi''_0(\bm q,\omega)$であるから
+\begin{align}
+  \chi''_0(\bm q,\omega) &= (2\mu_{\text B})^2\pi \sum_{\bm K}{\delta(\varepsilon_{\bm k}-\varepsilon_{\bm{k+q}}-\hbar\omega)[f(\varepsilon_{\bm{k+q}})-f(\varepsilon_{\bm k})]}\\
+  &=(2\mu_{\text B})^2\pi\int d\varepsilon N(\varepsilon)\delta(\varepsilon-\varepsilon'-\hbar\omega)[f(\varepsilon')-f(\varepsilon)]\,\\
+  &= (2\mu_{\text B})^2 \pi N(\varepsilon'+\hbar\omega)(\hbar\omega)\left(-\frac{\partial f}{\partial \varepsilon'}\right)
+\end{align}
+\begin{align}
+  \sum_{\bm q} \chi''_\bot(\bm q,\omega) &= (2\mu_{\text B})^2 \pi \int d\varepsilon' N(\varepsilon')N(\varepsilon'+\hbar\omega)(\hbar\omega)\delta(\varepsilon'-E_{\text F})\\
+  &= (2\mu_{\text B})^2\pi(\hbar\omega)N(E_{\text F})^2
+  \label{sum_chi_img}
+\end{align}
+となる。超微細相互作用係数$ A(r) $ は空間的に局在し$ \delta $関数であらわせるので、この関数の波数空間へのフーリエ変換は
+\begin{equation}
+  A(\bm q)=\int_{-\infty}^{\infty} A(\bm r)e^{-i \bm q \cdot r}\,d \bm r = e^{-i \bm q \cdot 0}=1
+\end{equation}
+となる。したがって、$A(\bm q)$は波数$\bm q$に依存しないので定数として扱える。そのためフーリエ変換された超微細相互作用の強さ$H_q$の平方のうち、核スピンの量子化軸（つまり外部磁場方向や電場勾配方向）に対して垂直な成分$(H_{\bm q}H_{-\bm q})_\bot$は定数$A^2$と表せる。よって式 (\ref{T1_a}) に式 (\ref{sum_chi_img}) をいれると，
+\begin{equation}
+  \frac{1}{T_1} \propto A^2 N(E_{\text F})^2 k_{\text B} T
+\end{equation}
+と書ける。ナイト・シフトにおける
+
+磁性体，電子相関効果で磁性が発現する遍歴電子系や新奇な超伝導を含む多彩な電子状態が観測される強相関物質では，スピンの揺らぎ効果によって，$\chi(q,\omega)$ は，特徴的な波数および周波数変化を示し，緩和現象に際立った特徴をもたらす．図3.7には，通常金属の $\chi_0(q,\omega)$ および，波数依存するスピン揺らぎが顕著な場合の，$\chi(Q+q,\omega)$ を示す．前者の場合，$\chi_0(q,\omega)$ はエネルギー $\omega$ に比例し，その傾きは $N(E_F)$ で与えられる．後者の場合は，
+
+
+
+\begin{equation}
+  \chi(Q+q,\omega) \propto \frac{\omega \Gamma_{Q+q}}{\omega^2 + \Gamma_{Q+q}^2} 
+\end{equation}
+
+
+\chapter{電気四重極相互作用}
+本研究では、1/1近似結晶Au$_{71}$Al$_{15}$Tb$_{14}$のAlに対してNMRを行っているが、Alは$I=5/2$である。原子核は$I \geq 1$の場合、磁気モーメントに加えて電気四重極能率(モーメント)を持つ。これと周辺の電荷が作る電場勾配との相互作用は、核スピンのエネルギー状態を分裂させ、外部磁場をかけなくとも核四重極共鳴(NQR)を可能にし、NMRにさらに多彩な変化をもたらす。本章では、この相互作用によって生じる効果について述べる。
+
+\section{核四重極共鳴(NQR)}
+原子核は$I \geq 1$の場合、磁気モーメントに加えて電気四重極能率$eQ$を持つ。ここで$e$は陽子の電荷である。これは、原子核の形が回転楕円体になっていることから生じるもので、電気四重極能率は
+\begin{equation}
+  eQ = e \int_V (3z^2 - r^2) dv
+\end{equation}
+と定義される。$z$は回転軸、すなわちスピンの方向であり、$V$は原子核の体積である。回転軸が楕円体の長軸ならば$Q > 0$、短軸ならば$Q < 0$となる。
+
+原子核の近傍に電荷があると、楕円体の原子核ではその向きによってクーロンエネルギーに違いが生じる。すなわち、磁場を印加しなくてもスピンの縮退が解け、この分離したエネルギー間隔に等しい振動磁場を量子化軸に垂直に加えると遷移が起こる。これを、核四重極共鳴(NQR)という。
+
+\section{電気四重極ハミルトニアン}
+原子核内の陽子の密度を$\rho(\mathbf{r})$、核外の電荷(電子または当該イオンの外部にあるイオン)による静電ポテンシャルを$V(\mathbf{r})$とすると、クーロンエネルギーは
+\begin{equation}
+  E = \int \rho(\mathbf{r}) V(\mathbf{r}) dv
+  \label{q_en}
+\end{equation}
+である。核の大きさは電子の広がりより十分小さいので、$V(r)$を原点周りで展開すると
+\begin{equation}
+V(\mathbf{r}) = V(0) + \sum_i x_i \frac{\partial V}{\partial x_i}\Big|_{r=0} + \frac{1}{2} \sum_{i,j} x_i x_j \frac{\partial^2 V}{\partial x_i \partial x_j}\Big|_{r=0} + \cdots
+\end{equation}
+となり、これを式(\ref{q_en})に入れると
+\begin{equation}
+  E = V(0) \int \rho(\mathbf{r}) dv + \sum_i V_i \int x_i \rho(\mathbf{r}) dv + \frac{1}{2} \sum_{i,j} V_{ij} \int x_i x_j \rho(\mathbf{r}) dv + \cdots
+  \label{e_tenkai}
+\end{equation}
+ここで、$x, y, z = x_1, x_2, x_3$であり、$V_i = \partial V/\partial x_i$、$V_{ij} = \partial^2 V/\partial x_i \partial x_j$である。
+式(\ref{e_tenkai})の第１項は一定値であり、回転楕円体は電気双極子能率を持たないことから第２項は0となる。よって第三項が電気四重極相互作用である。ここで、電気四重極テンソル
+\begin{equation}
+  Q_{ij} = \int (3 x_i x_j - \delta_{ij} r^2) \rho(\mathbf{r}) dv
+\end{equation}
+を導入して
+\begin{equation}
+  \int x_i x_j \rho(\mathbf{r}) \, dv = \frac{1}{3} \left[ Q_{ij} + \delta_{ij} \int r^2 \rho(\mathbf{r}) \, dv \right]
+  \label{xxij}
+\end{equation}
+と書き直す。これを式(\ref{e_tenkai})に代入するが、ここで式(\ref{xxjj})の第２項は、核外電荷による$V(\bm r)$はラプラスの方程式
+\begin{equation}
+  \Delta V = \sum_{i,j}V_{ij}\sigma_{ij}=0
+\end{equation}
+を満たす。よって、式(\ref{e_tenkai})の第3項は
+\begin{equation}
+  \mathcal{H}_Q = \frac{1}{6}\sum_{i,j}V_{ij}Q_{ij}
+\end{equation}
+とかける。さらに、核内の$k$番目の用紙の位置を$\bm {r}_k$とフーリエ展開すると
+\begin{equation}
+  \rho(\bm r)=e\sum_K\sigma(\bm r- \bm {r}_k)
+\end{equation}
+
 
 \chapter{A.C.磁化率測定の原理}
 \section{線形応答理論}
@@ -477,10 +655,10 @@ H_{\text{hf}} = \sum_{l} H_{t, l} I \cdot J_l
 
 また、応答が未来の原因から影響を受けないようにすることで、時間方向の矛盾を避け、物理系の時間対称性を保証すること（因果律）を考慮すると応答関数$\chi(t)$は
 \begin{align}
-  \chi^R(t") &= \chi(t")\theta(t") \label{chi_R} \\
-  \theta(t") &= \begin{cases} 
-     1 & (t" > 0)  \\
-     0 & (t" < 0)
+  \chi^R(t'') &= \chi(t'')\theta(t'') \label{chi_R} \\
+  \theta(t'') &= \begin{cases} 
+     1 & (t'' > 0)  \\
+     0 & (t'' < 0)
    \end{cases} \label{theta_w}
  \end{align}
 と変換される。これを用いると、式(\ref{A(t)})は
@@ -535,7 +713,7 @@ H_{\text{hf}} = \sum_{l} H_{t, l} I \cdot J_l
   &= \pi \delta(\omega) - \frac{i}{\omega}
   \label{theta_omega1}
 \end{align}
-となる。\par
+となるa。\par
 ここで、周波数領域での畳み込み積分は$\tilde{\theta}(\omega)$をもちいて
 \begin{equation}
   \chi^R(\omega) = \frac{1}{2\pi}\int_{-\infty}^{\infty} \tilde{\theta}(\omega - \omega') \cdot \chi(\omega') \, d\omega'
@@ -558,9 +736,9 @@ H_{\text{hf}} = \sum_{l} H_{t, l} I \cdot J_l
 \end{equation}
 以上をまとめると
 \begin{equation}
-  \chi^R(\omega) = \frac{1}{2} \chi(\omega) - \frac{i}{2\pi} \, P \int_{-\infty}^{\infty} \frac{\chi(\omega')}{\omega' - \omega} \, d\omega'=\chi'(\omega)+i\chi"(\omega)
+  \chi^R(\omega) = \frac{1}{2} \chi(\omega) - \frac{i}{2\pi} \, P \int_{-\infty}^{\infty} \frac{\chi(\omega')}{\omega' - \omega} \, d\omega'=\chi'(\omega)+i\chi''(\omega)
 \end{equation}
-となる。ここで、実部と虚部の関数$\chi'(\omega),\chi"(\omega)$はクラマース・クロニッヒの定理で結ばれる。
+となる。ここで、実部と虚部の関数$\chi'(\omega),\chi''(\omega)$はクラマース・クロニッヒの定理で結ばれる。
 \section{久保公式による応答関数の導出}
 時間依存のハミルトニアンを以下のように定義する。
 \begin{equation}
@@ -574,7 +752,7 @@ H_{\text{hf}} = \sum_{l} H_{t, l} I \cdot J_l
 \begin{equation}
   \rho(-\infty) = \frac{1}{Z_0} e^{-\beta H_0} = \rho_0 
 \end{equation}
-ここで、$ Z_0 $ は分配関数、$ \beta = \dfrac{1}{k_B T} $ は逆温度である。\par
+ここで、$ Z_0 $ は分配関数、$ \beta = \dfrac{1}{k_{\text B} T} $ は逆温度である。\par
 外部場は断熱的にスイッチオンされるので
 \begin{equation}
   F(t) = e^{s t} f(t), \quad s \rightarrow +0 
@@ -656,18 +834,42 @@ H_{\text{hf}} = \sum_{l} H_{t, l} I \cdot J_l
 \section{磁化率の場合}
 磁化率Mの外場に対する応答を考える。磁化$M$が外場$H$に対してどのように応答するのかを記述する微分方程式は
 \begin{equation}
- \alpha\dot{M}+kM=H 
+ \alpha\dot{M}+kM=H
+ \label{f}
 \end{equation}
-で表される。ここで、第一項は磁化の減衰をあらわす項であり、第二項は磁化の復元力を表す。\par
+で表される。ここで、第一項は磁化の減衰をあらわす項であり、第二項は磁化の復元力を表す。
+また$f=0$を考えると
+\begin{equation}
+  M(t)=M(0)e^{-t/\tau}
+\end{equation}
+が得られる。つまり、システムが磁化を持ち、その磁化が時間とともに指数関数的に緩和する場合、式(\ref{f})として考えることができる。
 この微分方程式から得られる感受率は
 \begin{equation}
-  \chi_M^R = \frac{1/k}{1-i\omega\tau} \left(\tau= \frac{\alpha}{k}/\right)
+  \chi_M^R = \frac{1/k}{1-i\omega\tau}
 \end{equation}
-である。ここに等温応答
+である。ここで$\tau= \frac{\alpha}{k}$は緩和時間をあらわす。また、断熱磁化率$\chi_S$を追加すると
+\begin{equation}
+  \chi_M^R = \chi_S+\frac{1/k}{1-i\omega\tau}　
+\end{equation}
+となる。さらに、等温磁化率$\chi_T=\chi_S+1/k$として、実部と虚部に分けると
+\begin{equation}
+  \chi_M^R=\chi_S+\frac{\chi_T-\chi_S}{1+\omega^2\tau^2}+i\frac{\chi_T-\chi_S}{1+\omega^2\tau^2}\omega\tau
+  \label{outoukanss}
+\end{equation}
+となる。よって式(\ref{outoukanss})より、磁気モーメントの緩和時間$\tau$に応じて、周波数$\omega$と$1/\tau$の相対的な大きさに基づいて、以下の三つの領域が定義される。
+\begin{itemize}
+  \item $\omega\ll 1/\tau$\par
+  この領域は、交流磁場に対して系がほぼ即時に応答する直流($d.c.$)限界に対応し、直流磁化率が得られる。これは、平衡応答であり、磁気モーメントが格子とエネルギーを交換できる状態である。その結果、等温応答磁化率$\chi_T$が測定される。
+  \item $\omega\gg 1/\tau$\par
+  この領域は、系の磁気モーメントが応答するには振動磁場が早すぎる場合である。したがって、系は格子とエネルギーを交換する時間がないので、この時得られる磁化率は、断熱磁化率$\chi_S$が測定される。
+  \item $\omega\approx 1/\tau$\par
+  この中間の領域では、交流磁場の周波数が系の磁気緩和の時間スケールと比較可能であり、より複雑な応答が得られる。また、応答は実部と虚部の成分$\chi'_{a.c.}$および$\chi''_{a.c.}$からなり、周波数依存性は図\ref{outou}のようになる。
+\end{itemize}
 \begin{figure}[htbp]
   \centering
   \vspace{10mm}
-  \includegraphics[width=160mm]{./figure/outou.png}
+  \includegraphics[width=100mm]{./figure/outou.png}
+  \caption{磁化率の実部、虚部の周波数依存性}
   \label{outou}
 \end{figure}
 
@@ -714,7 +916,7 @@ Tsai型近似体の磁化率測定では、異なるe/a比に対応して強磁�
 
 \chapter{まとめ}
 研究のまとめ。なんやかんやなんやかんやなんやかんやなんやかんやなんやかんやなんやかんやなんやかんやなんやかんやなんやかんやなんやかんやなんやかんやなんやかんやなんやかんやなんやかんやなんやかんやなんやかんやなんやかんやなんやかんやなんやかんやなんやかんや
-なんあやかあｊ
+なんあやかあｊaaaaaaaaaaaa
 %=====================================================================================
 \chapter*{謝辞} %章を付けずにタイトル表示
 \addcontentsline{toc}{chapter}{謝辞} %章立てせずに目次に追加するおまじない
